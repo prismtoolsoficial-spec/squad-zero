@@ -1,0 +1,5 @@
+SQUAD ZERO en Vercel (2 minutos)
+1. Entra en https://vercel.com/new  (inicia sesion con GitHub o email)
+2. Arrastra ESTA CARPETA entera al cuadro "Import" / o usa: npx vercel --prod  dentro de esta carpeta
+3. Framework: Other. Sin Build Command, sin Output Directory. Deploy.
+4. Copia la URL que te da (algo.vercel.app) y pegala en https://www.pwabuilder.com para sacar el APK.
