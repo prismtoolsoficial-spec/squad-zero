@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Squad Zero">
-<meta name="description" content="Shooter 2D de zombis: 12 personajes, ruleta del destino, tienda diaria, pase de temporada y ranking.">
+<meta name="description" content="Shooter 2D de zombis: 14 personajes, ruleta del destino, tienda diaria, pase de temporada y ranking.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -16,7 +16,7 @@
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Squad Zero: Calles Muertas">
-<meta property="og:description" content="Shooter 2D de zombis con 12 personajes, modo competitivo con rangos, duelos y más. Juega gratis en el navegador.">
+<meta property="og:description" content="Shooter 2D de zombis con 14 personajes, modo competitivo con rangos, duelos y más. Juega gratis en el navegador.">
 <meta property="og:image" content="icon-512.png">
 <meta name="keywords" content="juego de zombis, shooter 2d, juego gratis navegador, squad zero, calles muertas">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1564,7 +1564,7 @@ function renderMenu(){const mi=Math.floor(menuT/14)%5;menuBg(menuT*60,mi);
  ctx.setTransform(DPR,0,0,DPR,0,0);const g=ctx.createLinearGradient(0,0,0,VH);g.addColorStop(0,'rgba(5,4,10,0.85)');g.addColorStop(0.62,'rgba(5,4,10,0.45)');g.addColorStop(1,'rgba(5,4,10,0.05)');ctx.fillStyle=g;ctx.fillRect(0,0,VW,VH);
  const ts=Math.min(110,VW/8,VH*0.16);const ty=Math.max(VH*0.18,ts*0.82+8)+Math.sin(menuT*1.5)*3;
  ctx.save();ctx.translate(VW/2,ty);ctx.rotate(-0.03);T1('SQUAD ZERO',0,0,F1(ts),'#f4f1e6','center');ctx.fillStyle='#c0392b';ctx.fillRect(-ts*2.4,ts*0.18,ts*4.8,ts*0.4);T1('CALLES MUERTAS',0,ts*0.48,F1(ts*0.3),'#f4f1e6','center');ctx.restore();
- T1('12 amigos · 5 mapas · una ruleta · millones de zombis',VW/2,ty+ts*0.95,F2(Math.max(14,ts*0.16),700),'#f2c230','center');
+ T1('14 amigos · 5 mapas · una ruleta · millones de zombis',VW/2,ty+ts*0.95,F2(Math.max(14,ts*0.16),700),'#f2c230','center');
  btns=[];const bw=Math.min(250,VW*0.3),bh=42,gap=48,c1=VW/2-bw-8,c2=VW/2+8,by=ty+ts*1.18;
  btn(c1,by,bw,bh,'CAMPAÑA',()=>{menuMode='camp';state='maps';});btn(c1,by+gap,bw,bh,'MODO HORDA',()=>{menuMode='horde';state='maps';},false,'#ff6a4a');btn(c1,by+gap*2,bw,bh,'DESAFÍO SEMANAL',()=>{state='weekly';},false,'#c06aff');
  btn(c1,by+gap*3,bw,bh,'PERSONAJES',()=>{state='chars';});btn(c1,by+gap*4,bw,bh,'CONTROLES',()=>{state='controls';});
@@ -2260,7 +2260,7 @@ renderMenu=function(){const mi=Math.floor(menuT/14)%5;menuBg(menuT*60,mi);
  ctx.fillStyle='#c0392b';ctx.beginPath();ctx.moveTo(-ts*2.45,ts*0.16);ctx.lineTo(ts*2.5,ts*0.12);ctx.lineTo(ts*2.4,ts*0.56);ctx.lineTo(-ts*2.5,ts*0.6);ctx.closePath();ctx.fill();
  ctx.save();ctx.clip();const sx=((menuT*300)%(ts*7))-ts*3.5;const sg=ctx.createLinearGradient(sx-60,0,sx+60,0);sg.addColorStop(0,'rgba(255,255,255,0)');sg.addColorStop(0.5,'rgba(255,255,255,0.35)');sg.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=sg;ctx.fillRect(-ts*3,0,ts*6,ts);ctx.restore();
  T1('CALLES MUERTAS',0,ts*0.48,F1(ts*0.3),'#f4f1e6','center');ctx.restore();
- T1('12 amigos · 5 mapas · 6 modos · millones de zombis',VW/2,ty+ts*0.92,F2(Math.max(13,ts*0.15),700),'#f2c230','center');
+ T1('14 amigos · 5 mapas · 6 modos · millones de zombis',VW/2,ty+ts*0.92,F2(Math.max(13,ts*0.15),700),'#f2c230','center');
  // botones
  btns=[];const bw=Math.min(270,VW*0.31),bh=Math.min(44,VH*0.082),gap=bh+7,c1=VW/2-bw-10,c2=VW/2+10,by=ty+ts*1.16;
  menuBtn(c1,by,bw,bh,'CAMPAÑA','▶','#ff5a4a',()=>{menuMode='camp';state='maps';},true);
@@ -3088,6 +3088,20 @@ renderShop=(function(){const _rs=renderShop;return function(){
    _icard(id,gx+(j%cols)*(cwid+12),top+Math.floor(j/cols)*(chh+12),cwid,chh,p,off);};
   try{_rs();}finally{itemCard=_icard;shopToday=_st;}
  };})();
+// ---------- AYAAN: invisibilidad ----------
+CH.push({id:'ayaan',name:'AYAAN',nick:'El Fantasma',h:0.99,w:1.0,skin:'#8a5a3c',hair:'#0c0c0e',hs:'short',eye:'#2a1a10',top:'#00c2c7',tt:'tee',pants:'#121316',pp:null,shoes:'#0c0c0e',hp:100,spd:315,jump:810,wpn:'rifle',ab:'ghost',abName:'Invisibilidad',abDesc:'Se vuelve invisible 8 s: los zombis y los jefes pierden su rastro y cada disparo hace el doble de daño por sorpresa.',cd:20});
+DSP.ayaan={k:'tele',n:'Paso fantasma',col:'#00e0e6'};
+const _useAb25=useAbility;
+useAbility=function(){if(!p||p.dead||p.abCd>0)return _useAb25();
+ if((H.laser?'laser':ch.ab)==='ghost'){p.ghostT=8;p.invisT=8;smoke(p.x,p.y-40,14,16,'0,190,200');sfx.whoosh&&sfx.whoosh();flashW=0.08;bannerSet('¡INVISIBLE!','Los zombis no te ven · daño x2','#00e0e6',1.2);p.abCd=abCdVal();return;}
+ _useAb25();};
+const _upd25=update;
+update=function(dt){_upd25(dt);if(state!=='play'||!p)return;
+ if(p.ghostT>0){p.ghostT-=dt;if(p.dead){p.ghostT=0;p.invisT=0;return;}
+  p.invisT=Math.max(p.invisT,Math.min(p.ghostT,0.2)); // disparar no rompe la invisibilidad de Ayaan
+  if(Math.random()<0.25)part({x:p.x+rnd(-14,14),y:p.y-rnd(10,p.bh),vx:rnd(-20,20),vy:-rnd(20,60),life:0.5,type:'spark',col:'#00e0e6',layer:1});
+  if(p.ghostT<=0){p.ghostT=0;p.invisT=0;smoke(p.x,p.y-40,8,12,'0,190,200');}}};
+const _abIcon25=abIcon;abIcon=function(a,x,y,s){return _abIcon25(a==='ghost'?'invis':a,x,y,s);};
 </script>
 <script>if('serviceWorker' in navigator&&location.protocol==='https:'){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}</script>
 </body>
